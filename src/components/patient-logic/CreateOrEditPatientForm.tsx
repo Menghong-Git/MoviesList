@@ -70,10 +70,10 @@ const CreateOrEditPatientForm = ({
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-xs">
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-xs ">
             <div className="space-y-2">
                 <label className="block text-sm font-medium" htmlFor="patient-name">
-                    Patient Name
+                    Your Name:
                 </label>
                 <Input
                     id="patient-name"
@@ -84,10 +84,10 @@ const CreateOrEditPatientForm = ({
             </div>
             <div className="space-y-2">
                 <label className="block text-sm font-medium" htmlFor="patient-age">
-                    Age
+                    Your Age :
                 </label>
                 <Input
-                    id="patient-price"
+                    id="patient-age"
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
                     placeholder="e.g. 18"

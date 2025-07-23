@@ -3,44 +3,44 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-interface HospitalContextType {
-  patient: Hospital.Patient[];
-  addPatient: (patient: Hospital.Patient) => void;
-  updatePatient: (id: string, patient: Partial<Hospital.Patient>) => void;
-  deletePatient: (id: string) => void;
+interface DoctorContextType {
+  doctor: Hospital.Doctor[];
+  addDoctor: (doctor: Hospital.Doctor) => void;
+  updateDoctor: (id: string, doctor: Partial<Hospital.Doctor>) => void;
+  deleteDoctor: (id: string) => void;
 }
 
-const HospitalContext = createContext<HospitalContextType | undefined>(undefined);
+const DoctorContext = createContext<DoctorContextType | undefined>(undefined);
 
-export const PatientProvider = ({ children }: { children: ReactNode }) => {
-  const [patient, setPatient] = useState<Hospital.Patient[]>([]);
+export const DoctorProvider = ({ children }: { children: ReactNode }) => {
+  const [doctor, setDoctor] = useState<Hospital.Doctor[]>([]);
 
-  const addPatient = (patient: Hospital.Patient) => {
-    setPatient((prev) => [...prev, patient]);
+  const addDoctor = (doctor: Hospital.Doctor) => {
+    setDoctor((prev) => [...prev, doctor]);
   };
 
-  const updatePatient = (id: string, newData: Partial<Hospital.Patient>) => {
-    setPatient((prev) =>
+  const updateDoctor = (id: string, newData: Partial<Hospital.Patient>) => {
+    setDoctor((prev) =>
       prev.map((p) => (p.id === id ? { ...p, ...newData } : p))
     );
   };
 
-  const deletePatient = (id: string) => {
-    setPatient((prev) => prev.filter((p) => p.id !== id));
+  const deleteDoctor = (id: string) => {
+    setDoctor((prev) => prev.filter((p) => p.id !== id));
   };
 
   return (
-    <HospitalContext.Provider
-      value={{ patient, addPatient, updatePatient, deletePatient }}
+    <DoctorContext.Provider
+      value={{ doctor, addDoctor,updateDoctor, deleteDoctor }}
     >
       {children}
-    </HospitalContext.Provider>
+    </DoctorContext.Provider>
   );
 };
 
-export const useHospitalContext = () => {
-  const context = useContext(HospitalContext);
+export const useDoctorContext = () => {
+  const context = useContext(DoctorContext);
   if (!context)
-    throw new Error("useHospitalContext must be used within ProductProvider");
+    throw new Error("useDoctorContext must be used within ProductProvider");
   return context;
 };

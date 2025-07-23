@@ -9,18 +9,18 @@ const PatientList = ({
   const { patient, deletePatient } = useHospitalContext();
   return (
     <div className="mt-6 border rounded p-4 w-full">
-      <h2 className="font-bold mb-2">patient</h2>
+      <h2 className="font-bold mb-2">Patient Name: </h2>
       {patient.length === 0 ? (
-        <div className="text-gray-500">No patient yet.</div>
+        <div className="text-gray-500 ">No Patient yet.</div>
       ) : (
-        <ul className="space-y-1">
+        <ul className="space-y-1 ">
           {patient.map((p) => (
             <li
               key={p.id}
               className="border rounded px-2 py-1 flex items-center justify-between gap-2"
             >
-              <span>{p.name}</span>
-              <span className="text-gray-700">${p.age.toFixed(2)}</span>
+              <span className="w-1/3 text-start">{p.name}</span>
+              <span className="text-gray-700 w-1/3 text-center">{p.age.toFixed(0)} year</span>
               <div className="flex gap-1">
                 <Button
                   size="sm"
@@ -36,7 +36,7 @@ const PatientList = ({
                   onClick={() => deletePatient(p.id)}
                   type="button"
                 >
-                  Delete
+                  Cancel
                 </Button>
               </div>
             </li>

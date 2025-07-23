@@ -2,9 +2,9 @@ import * as React from "react";
 import {
   AudioWaveform,
   Command,
+  DotSquareIcon,
   GalleryVerticalEnd,
-  // ShoppingCart,
-  SquareTerminal,
+  Hospital,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -46,20 +46,20 @@ const data = {
   ],
   navMain: [
     {
-      title: "Dashboard",
+      title: "Hospital Platform",
       url: "#",
-      icon: SquareTerminal,
+      icon: Hospital,
       items: [
         {
           title: "patients",
           url: ROUTE_PATH.PatientPage.root,
         },
+        {
+          title: "Doctor List",
+          url: ROUTE_PATH.Doctors.root,
+          icon: DotSquareIcon,
+        },
       ],
-    },
-    {
-      // title: "Shop",
-      // url: ROUTE_PATH.shop.root,
-      // icon: ShoppingCart,
     },
   ],
   // projects: [],

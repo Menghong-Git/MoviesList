@@ -6,6 +6,7 @@ declare namespace Hospital {
   }
 
   interface Doctor {
+  age: any;
   id: string;
   name: string;
   specialty: string;

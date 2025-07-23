@@ -8,6 +8,7 @@ const AppLayout = lazy(() => import("../layout"));
 // pages
 const HomePage = lazy(() => import("../App"));
 const Patients = lazy(() => import("../pages/patients"));
+const Doctors = lazy(() => import("../pages/doctor"));
 
 const AllRoutes = () => {
   return (
@@ -38,12 +39,12 @@ const AllRoutes = () => {
           }
         />
         <Route
-          // path={ROUTE_PATH.shop.root}
-          // element={
-          //   <Suspense fallback={<div>Layout Loading...</div>}>
-          //     {/* <ShopPage /> */}
-          //   </Suspense>
-          // }
+          path={ROUTE_PATH.Doctors.root}
+          element={
+            <Suspense fallback={<div>Layout Loading...</div>}>
+              <Doctors />
+            </Suspense>
+          }
         />
       </Route>
       {/* End Layout */}
