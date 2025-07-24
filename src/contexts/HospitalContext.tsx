@@ -1,16 +1,16 @@
-s; /* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react-refresh/only-export-components */
 // context/ProductContext.tsx
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-interface PatientContextType {
+interface HospitalContextType {
   patient: Hospital.Patient[];
   addPatient: (patient: Hospital.Patient) => void;
   updatePatient: (id: string, patient: Partial<Hospital.Patient>) => void;
   deletePatient: (id: string) => void;
 }
 
-const PatientContext = createContext<PatientContextType | undefined>(undefined);
+const HospitalContext = createContext<HospitalContextType | undefined>(undefined);
 
 export const PatientProvider = ({ children }: { children: ReactNode }) => {
   const [patient, setPatient] = useState<Hospital.Patient[]>([]);
@@ -19,28 +19,29 @@ export const PatientProvider = ({ children }: { children: ReactNode }) => {
     setPatient((prev) => [...prev, patient]);
   };
 
+
   const updatePatient = (id: string, newData: Partial<Hospital.Patient>) => {
     setPatient((prev) =>
-      prev.map((p) => (String(p.id) === String(id) ? { ...p, ...newData } : p))
+      prev.map((p) => (p.id === id ? { ...p, ...newData } : p))
     );
   };
 
   const deletePatient = (id: string) => {
-    setPatient((prev) => prev.filter((p) => String(p.id) !== String(id)));
+    setPatient((prev) => prev.filter((p) => p.id!== id));
   };
 
   return (
-    <PatientContext.Provider
+    <HospitalContext.Provider
       value={{ patient, addPatient, updatePatient, deletePatient }}
     >
       {children}
-    </PatientContext.Provider>
+    </HospitalContext.Provider>
   );
 };
 
-export const usePatientContext = () => {
-  const context = useContext(PatientContext);
+export const useHospitalContext = () => {
+  const context = useContext(HospitalContext);
   if (!context)
-    throw new Error("useHospitalContext must be used within PatientProvider");
+    throw new Error("useHospitalContext must be used within ProductProvider");
   return context;
 };

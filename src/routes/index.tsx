@@ -19,7 +19,7 @@ const AllRoutes = () => {
       <Route
         path={ROUTE_PATH.root}
         element={
-          <Suspense fallback={<Loader/>}>
+          <Suspense fallback={<Loader />}>
             <AppLayout />
           </Suspense>
         }
@@ -27,7 +27,7 @@ const AllRoutes = () => {
         <Route
           path={ROUTE_PATH.root}
           element={
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
               <HomePage />
             </Suspense>
           }
@@ -35,7 +35,7 @@ const AllRoutes = () => {
         <Route
           path={ROUTE_PATH.PatientPage.root}
           element={
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
               <Patients />
             </Suspense>
           }
@@ -43,7 +43,7 @@ const AllRoutes = () => {
         <Route
           path={ROUTE_PATH.DoctorPage.root}
           element={
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
               <Doctors />
             </Suspense>
           }
@@ -51,7 +51,7 @@ const AllRoutes = () => {
         <Route
           path={ROUTE_PATH.AppointmetPage.root}
           element={
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
               <Appointments />
             </Suspense>
           }

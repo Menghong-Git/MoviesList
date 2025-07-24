@@ -3,38 +3,21 @@ import PatientList from "@/components/patient-logic/PatientList";
 import { PatientProvider } from "@/contexts/PatientContext";
 import CreateOrEditPatientForm from "@/components/patient-logic/CreateOrEditPatientForm";
 
-
 type EditState = {
   id: string;
   name: string;
   age: number;
 } | null;
 
-
-const Patient = () => {
+export function Patient() {
   const [editPatient, setEditPatient] = useState<EditState>(null);
   return (
     <PatientProvider>
-      <div className="flex flex-col items-center py-8 w-full">
-  <div className="w-full max-w-4xl px-4">
-    <h1 className="text-2xl font-bold mb-6 text-center">
-      Patient Management
-    </h1>
-
-    <div className="rounded-lg p-6 mb-6 ">
-     <div className="flex justify-center">
-     <CreateOrEditPatientForm
-        editPatient={editPatient}
-        onCancelEdit={() => setEditPatient(null)}
-      />
-     </div>
-    </div>
-    <div className="rounded-lg p-6">
-      <h2 className="text-xl font-semibold mb-4 text-center">
-        Patient List
-      </h2>
-      <div className="flex justify-center">
-        <div className="w-full">
+      <div className="container mx-auto py-8 w-full">
+        <h1 className="text-4xl font-bold mb-4 justify-center text-center">
+          Patient Register
+        </h1>
+        <div className="grid grid-cols-2 gap-4">
           <PatientList
             onEdit={(p) =>
               setEditPatient({
@@ -44,13 +27,14 @@ const Patient = () => {
               })
             }
           />
+          <CreateOrEditPatientForm
+            editPatient={editPatient}
+            onCancelEdit={() => setEditPatient(null)}
+          />
         </div>
       </div>
-    </div>
-  </div>
-</div>
     </PatientProvider>
   );
-};
+}
 
 export default Patient;

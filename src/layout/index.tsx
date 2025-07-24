@@ -32,15 +32,17 @@ const AppLayout = () => {
             />
             <Breadcrumb>
               <BreadcrumbList>
-              <h1 className="text-black-600 font-medium ">Hospital Management</h1>
+                <h1 className="text-black-600 font-medium ">
+                  Hospital Management
+                </h1>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <div className='flex items-end ml-auto mx-10'>
-        <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-            <ModeToggle/>
-        </ThemeProvider>
-        </div>
+          <div className="flex items-end ml-auto mx-10">
+            <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+              <ModeToggle />
+            </ThemeProvider>
+          </div>
         </header>
         <main className="p-6">
           <Outlet />
