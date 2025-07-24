@@ -6,17 +6,17 @@ declare namespace Hospital {
   }
 
   interface Doctor {
-  age: any;
-  id: string;
-  name: string;
-  specialty: string;
-  contact: string;
-}
- interface Appointment {
-  id: string;
-  patientId: number;
-  doctorId: string;
-  date: string;
-  time: string;
-}
+    id: string;
+    name: string;
+    age: number;
+    specialty: string;
+    contact: string;
+  }
+  interface Appointment {
+    id: string;
+    patientId: string;
+    doctorId: string;
+    date: Date;
+    time: string;
+  }
 }

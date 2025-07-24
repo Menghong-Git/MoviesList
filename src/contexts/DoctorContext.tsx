@@ -5,7 +5,7 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 interface DoctorContextType {
   doctor: Hospital.Doctor[];
-  addDoctor: (doctor: Hospital.Doctor) => void;
+  addDoctor: (patient: Hospital.Doctor) => void;
   updateDoctor: (id: string, doctor: Partial<Hospital.Doctor>) => void;
   deleteDoctor: (id: string) => void;
 }
@@ -19,19 +19,19 @@ export const DoctorProvider = ({ children }: { children: ReactNode }) => {
     setDoctor((prev) => [...prev, doctor]);
   };
 
-  const updateDoctor = (id: string, newData: Partial<Hospital.Patient>) => {
+  const updateDoctor = (id: string, newData: Partial<Hospital.Doctor>) => {
     setDoctor((prev) =>
-      prev.map((p) => (p.id === id ? { ...p, ...newData } : p))
+      prev.map((d) => (d.id === id ? { ...d, ...newData } : d))
     );
   };
 
   const deleteDoctor = (id: string) => {
-    setDoctor((prev) => prev.filter((p) => p.id !== id));
+    setDoctor((prev) => prev.filter((d) => d.id !== id));
   };
 
   return (
     <DoctorContext.Provider
-      value={{ doctor, addDoctor,updateDoctor, deleteDoctor }}
+      value={{ doctor, addDoctor, updateDoctor, deleteDoctor }}
     >
       {children}
     </DoctorContext.Provider>
@@ -41,6 +41,6 @@ export const DoctorProvider = ({ children }: { children: ReactNode }) => {
 export const useDoctorContext = () => {
   const context = useContext(DoctorContext);
   if (!context)
-    throw new Error("useDoctorContext must be used within ProductProvider");
+    throw new Error("useDoctorContext must be used within DoctorProvider");
   return context;
 };

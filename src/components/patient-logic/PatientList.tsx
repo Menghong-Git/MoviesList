@@ -1,6 +1,14 @@
-import { useHospitalContext } from "@/contexts/HospitalContext";
+import { usePatientContext } from "@/contexts/PatientContext";
 import { Button } from "@/components/ui/button";
-
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Trash2Icon, UserPen } from "lucide-react";
 const PatientList = ({
   onEdit,
 }: {
@@ -20,7 +28,9 @@ const PatientList = ({
               className="border rounded px-2 py-1 flex items-center justify-between gap-2"
             >
               <span className="w-1/3 text-start">{p.name}</span>
-              <span className="text-gray-700 w-1/3 text-center">{p.age.toFixed(0)} year</span>
+              <span className="text-gray-700 w-1/3 text-center">
+                {p.age.toFixed(0)} year
+              </span>
               <div className="flex gap-1">
                 <Button
                   size="sm"

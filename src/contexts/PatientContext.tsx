@@ -1,16 +1,16 @@
-/* eslint-disable react-refresh/only-export-components */
+s; /* eslint-disable react-refresh/only-export-components */
 // context/ProductContext.tsx
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-interface HospitalContextType {
+interface PatientContextType {
   patient: Hospital.Patient[];
   addPatient: (patient: Hospital.Patient) => void;
   updatePatient: (id: string, patient: Partial<Hospital.Patient>) => void;
   deletePatient: (id: string) => void;
 }
 
-const HospitalContext = createContext<HospitalContextType | undefined>(undefined);
+const PatientContext = createContext<PatientContextType | undefined>(undefined);
 
 export const PatientProvider = ({ children }: { children: ReactNode }) => {
   const [patient, setPatient] = useState<Hospital.Patient[]>([]);
@@ -30,17 +30,17 @@ export const PatientProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <HospitalContext.Provider
+    <PatientContext.Provider
       value={{ patient, addPatient, updatePatient, deletePatient }}
     >
       {children}
-    </HospitalContext.Provider>
+    </PatientContext.Provider>
   );
 };
 
-export const useHospitalContext = () => {
-  const context = useContext(HospitalContext);
+export const usePatientContext = () => {
+  const context = useContext(PatientContext);
   if (!context)
-    throw new Error("useHospitalContext must be used within HospitalProvider");
+    throw new Error("useHospitalContext must be used within PatientProvider");
   return context;
 };

@@ -1,55 +1,85 @@
 import { useDoctorContext } from "@/contexts/DoctorContext";
 import { Button } from "@/components/ui/button";
-
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Trash2Icon, UserPen } from "lucide-react";
 const DoctorList = ({
   onEdit,
 }: {
-  onEdit: (doctor: { id: string; name: string; age: number, specialty: string; contact: string; }) => void;
+  onEdit: (doctor: {
+    id: string;
+    name: string;
+    age: number;
+    specialty: string;
+    contact: string;
+  }) => void;
 }) => {
   const { doctor, deleteDoctor } = useDoctorContext();
   return (
     <div className="mt-6 border rounded p-4 w-full">
-      <h2 className="font-bold mb-2">Doctor Name: </h2>
-      {doctor.length === 0 ? (
-        <div className="text-gray-500 ">No Doctor yet.</div>
-      ) : (
-        <ul className="space-y-1 ">
-          {doctor.map((p) => (
-            <li
-              key={p.id}
-              className="border rounded px-2 py-1 flex items-center justify-between gap-2"
-            >
-              <span className="w-1/3 text-start">{p.name}</span>
-              <span className="text-gray-700 w-1/3 text-center">{p.age.toFixed(0)} year</span>
-              <span className="text-gray-700 w-1/3 text-center">{p.specialty}</span>
-              <span className="text-gray-700 w-1/3 text-center">{p.contact}</span>
-              {/* Add more fields as needed */}
-              <div className="flex gap-1">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => onEdit(p)}
-                  type="button"
-                >
-                  Edit
-                </Button>
-                <Button
-                  size="sm"
-                  variant="destructive"
-                  onClick={() => deleteDoctor(p.id)}
-                  type="button"
-                >
-                  Cancel
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[50px]  text-center">No.</TableHead>
+            <TableHead className="w-[150px] text-center">Name</TableHead>
+            <TableHead className="w-[150px] text-center">Age</TableHead>
+            <TableHead className="w-[100px] text-center">Specialty</TableHead>
+            <TableHead className="w-[100px] text-center">Contact</TableHead>
+            <TableHead className="w-[200px] text-center">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {doctor.length === 0 ? (
+            <TableRow>
+              <TableCell colSpan={8} className="text-center">
+                No doctor found.
+              </TableCell>
+            </TableRow>
+          ) : (
+            doctor.map((d, index) => (
+              <TableRow key={d.id} className="space-x-4">
+                <TableCell className="font-medium text-center">
+                  {index + 1}
+                </TableCell>
+                <TableCell className="text-center">{d.name}</TableCell>
+                <TableCell className="text-center">{d.age}</TableCell>
+                <TableCell className="text-center">{d.specialty}</TableCell>
+                <TableCell className="text-center">{d.contact}</TableCell>
+                <TableCell className="text-center">
+                  <div className="gap-2">
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={() => onEdit(d)}
+                      type="button"
+                      aria-label="Edit"
+                    >
+                      <UserPen className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={() => deleteDoctor(d.id)}
+                      type="button"
+                      aria-label="Delete"
+                    >
+                      <Trash2Icon className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 };
 
 export default DoctorList;
-
-

@@ -1,4 +1,5 @@
 // import AppLayout from "@/layout";
+import Loader from "@/components/loader/Loader";
 import { ROUTE_PATH } from "@/lib/route-path";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
@@ -9,6 +10,7 @@ const AppLayout = lazy(() => import("../layout"));
 const HomePage = lazy(() => import("../App"));
 const Patients = lazy(() => import("../pages/patients"));
 const Doctors = lazy(() => import("../pages/doctor"));
+const Appointments = lazy(() => import("../pages/appointment"));
 
 const AllRoutes = () => {
   return (
@@ -17,7 +19,7 @@ const AllRoutes = () => {
       <Route
         path={ROUTE_PATH.root}
         element={
-          <Suspense fallback={<div>Layout Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <AppLayout />
           </Suspense>
         }
@@ -25,7 +27,7 @@ const AllRoutes = () => {
         <Route
           path={ROUTE_PATH.root}
           element={
-            <Suspense fallback={<div>Layout Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <HomePage />
             </Suspense>
           }
@@ -33,16 +35,24 @@ const AllRoutes = () => {
         <Route
           path={ROUTE_PATH.PatientPage.root}
           element={
-            <Suspense fallback={<div>Layout Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <Patients />
             </Suspense>
           }
         />
         <Route
-          path={ROUTE_PATH.Doctors.root}
+          path={ROUTE_PATH.DoctorPage.root}
           element={
-            <Suspense fallback={<div>Layout Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <Doctors />
+            </Suspense>
+          }
+        />
+        <Route
+          path={ROUTE_PATH.AppointmetPage.root}
+          element={
+            <Suspense fallback={<Loader />}>
+              <Appointments />
             </Suspense>
           }
         />

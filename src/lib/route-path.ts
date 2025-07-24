@@ -3,7 +3,10 @@ export const ROUTE_PATH = {
   PatientPage: {
     root: "patients",
   },
-  Doctors: {
-    root: "Doctor List",
+  DoctorPage: {
+    root: "doctors",
+  },
+  AppointmetPage: {
+    root: "appointments",
   },
 };
