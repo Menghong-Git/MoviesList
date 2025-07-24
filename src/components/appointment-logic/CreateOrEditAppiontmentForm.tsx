@@ -45,7 +45,7 @@ const CreateOrEditAppointmentForm = ({
         } else {
             setPatientId("");
             setDoctorId("");
-            setDate("");
+            setDate(undefined);
             setTime("");
         }
     }, [editAppointment, editAppointment?.id]);
@@ -58,7 +58,7 @@ const CreateOrEditAppointmentForm = ({
         }
         if (editAppointment) { 
             updateAppointment( editAppointment.id, {
-                patientId: Number(patientId),
+                patientId: patientId,
                 doctorId: doctorId,
                 date: date ? new Date(date) : undefined,
                 time: time.trim(),
@@ -69,14 +69,14 @@ const CreateOrEditAppointmentForm = ({
         } else {
             addAppointment({
                 id: crypto.randomUUID(),
-                patientId: Number(patientId),
+                patientId:patientId,
                 doctorId: doctorId,
                 date: new Date(date),
                 time: time.trim(),
             } as Hospital.Appointment);
             setPatientId("");
             setDoctorId("");
-            setDate("");
+            setDate(undefined);
             setTime("");
             setMessage("Doctor created!");
             setTimeout(() => setMessage(""), 3000);
