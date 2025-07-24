@@ -14,9 +14,9 @@ declare namespace Hospital {
 }
  interface Appointment {
   id: string;
-  patientId: number;
+  patientId: string;
   doctorId: string;
-  date: string;
+  date: Date;
   time: string;
 }
 }
