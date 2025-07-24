@@ -2,9 +2,9 @@ import * as React from "react";
 import {
   AudioWaveform,
   Command,
-  DotSquareIcon,
   GalleryVerticalEnd,
-  Hospital,
+  // ShoppingCart,
+  SquareTerminal,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -19,6 +19,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { ROUTE_PATH } from "@/lib/route-path";
+import { IconReport, IconUser } from "@tabler/icons-react";
 
 // This is sample data.
 const data = {
@@ -29,7 +30,11 @@ const data = {
   },
   teams: [
     {
+<<<<<<< HEAD
+      name: "Hostpital Management",
+=======
       name: "Acme Inc",
+>>>>>>> main
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
@@ -46,6 +51,29 @@ const data = {
   ],
   navMain: [
     {
+<<<<<<< HEAD
+      title: "Dashboard",
+      url: ROUTE_PATH.root,
+      icon: SquareTerminal,
+    },
+    {
+      title: "Patients",
+      url: ROUTE_PATH.PatientPage.root,
+      icon: IconUser,
+    },
+    {
+      title: "Doctors",
+      url: ROUTE_PATH.DoctorPage.root,
+      icon: IconUser,
+    },
+    {
+      title: "Appointments",
+      url: ROUTE_PATH.AppointmetPage.root,
+      icon: IconReport,
+    },
+  ],
+  
+=======
       title: "Hospital Platform",
       url: "#",
       icon: Hospital,
@@ -62,6 +90,7 @@ const data = {
       ],
     },
   ],
+>>>>>>> main
   // projects: [],
 };
 

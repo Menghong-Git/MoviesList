@@ -1,18 +1,13 @@
-
-import CreateOrEditPatientForm from "@/components/patient-logic/CreateOrEditPatientForm";
-import PatientList from "@/components/patient-logic/PatientList";
-import { PatientProvider} from "@/contexts/HospitalContext";
 import { useState } from "react";
-
+import PatientList from "@/components/patient-logic/PatientList";
+import { PatientProvider } from "@/contexts/PatientContext";
+import CreateOrEditPatientForm from "@/components/patient-logic/CreateOrEditPatientForm";
 
 type EditState = {
   id: string;
   name: string;
   age: number;
 } | null;
-
-
-
 
 export function Patient() {
   const [editPatient, setEditPatient] = useState<EditState>(null);
@@ -40,6 +35,6 @@ export function Patient() {
       </div>
     </PatientProvider>
   );
-};
+}
 
 export default Patient;

@@ -1,5 +1,7 @@
 // import React from "react";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ModeToggle } from "@/components/dark-mode/mode-toggle";
+import { ThemeProvider } from "@/components/dark-mode/theme-provider";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -30,17 +32,16 @@ const AppLayout = () => {
             />
             <Breadcrumb>
               <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
+                <h1 className="text-black-600 font-medium ">
+                  Hospital Management
+                </h1>
               </BreadcrumbList>
             </Breadcrumb>
+          </div>
+          <div className="flex items-end ml-auto mx-10">
+            <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+              <ModeToggle />
+            </ThemeProvider>
           </div>
         </header>
         <main className="p-6">
