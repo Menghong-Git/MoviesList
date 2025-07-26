@@ -11,6 +11,7 @@ const HomePage = lazy(() => import("../App"));
 const Patients = lazy(() => import("../pages/patients"));
 const Doctors = lazy(() => import("../pages/doctor"));
 const Appointments = lazy(() => import("../pages/appointment"));
+const Logins = lazy(() => import("../pages/login/"))
 
 const AllRoutes = () => {
   return (
@@ -53,6 +54,14 @@ const AllRoutes = () => {
           element={
             <Suspense fallback={<Loader />}>
               <Appointments />
+            </Suspense>
+          }
+        />
+        <Route
+          path={ROUTE_PATH.LoginPage.root}
+          element={
+            <Suspense fallback={<Loader />}>
+              <Logins />
             </Suspense>
           }
         />

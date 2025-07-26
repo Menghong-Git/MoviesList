@@ -2,19 +2,17 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { ModeToggle } from "@/components/dark-mode/mode-toggle";
 import { ThemeProvider } from "@/components/dark-mode/theme-provider";
+import SearchForm from "@/components/search-filter/Search";
 import {
   Breadcrumb,
   BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import {
   SidebarProvider,
   SidebarInset,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+
 import { Separator } from "@radix-ui/react-separator";
 import { Outlet } from "react-router";
 
@@ -37,6 +35,9 @@ const AppLayout = () => {
                 </h1>
               </BreadcrumbList>
             </Breadcrumb>
+          </div>
+          <div>
+            <SearchForm/>
           </div>
           <div className="flex items-end ml-auto mx-10">
             <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">

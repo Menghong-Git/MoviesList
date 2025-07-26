@@ -9,4 +9,7 @@ export const ROUTE_PATH = {
   AppointmetPage: {
     root: "appointments",
   },
+  LoginPage: {
+    root: "logins",
+  },
 };

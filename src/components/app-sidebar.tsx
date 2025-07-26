@@ -30,11 +30,7 @@ const data = {
   },
   teams: [
     {
-<<<<<<< HEAD
       name: "Hostpital Management",
-=======
-      name: "Acme Inc",
->>>>>>> main
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
@@ -51,7 +47,6 @@ const data = {
   ],
   navMain: [
     {
-<<<<<<< HEAD
       title: "Dashboard",
       url: ROUTE_PATH.root,
       icon: SquareTerminal,
@@ -71,26 +66,13 @@ const data = {
       url: ROUTE_PATH.AppointmetPage.root,
       icon: IconReport,
     },
-  ],
-  
-=======
-      title: "Hospital Platform",
-      url: "#",
-      icon: Hospital,
-      items: [
-        {
-          title: "patients",
-          url: ROUTE_PATH.PatientPage.root,
-        },
-        {
-          title: "Doctor List",
-          url: ROUTE_PATH.Doctors.root,
-          icon: DotSquareIcon,
-        },
-      ],
+    {
+      title: "Logins",
+      url: ROUTE_PATH.LoginPage.root,
+      icon: IconReport,
     },
   ],
->>>>>>> main
+  
   // projects: [],
 };
 
