@@ -9,51 +9,63 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Trash2Icon, UserPen } from "lucide-react";
+
 const PatientList = ({
   onEdit,
 }: {
   onEdit: (patient: { id: string; name: string; age: number }) => void;
 }) => {
-  const { patient, deletePatient } = useHospitalContext();
+  const { patient, deletePatient } = usePatientContext();
   return (
-    <div className="mt-6 border rounded p-4 w-full">
-      <h2 className="font-bold mb-2">Patient Name: </h2>
-      {patient.length === 0 ? (
-        <div className="text-gray-500 ">No Patient yet.</div>
-      ) : (
-        <ul className="space-y-1 ">
-          {patient.map((p) => (
-            <li
-              key={p.id}
-              className="border rounded px-2 py-1 flex items-center justify-between gap-2"
-            >
-              <span className="w-1/3 text-start">{p.name}</span>
-              <span className="text-gray-700 w-1/3 text-center">
-                {p.age.toFixed(0)} year
-              </span>
-              <div className="flex gap-1">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => onEdit(p)}
-                  type="button"
-                >
-                  Edit
-                </Button>
-                <Button
-                  size="sm"
-                  variant="destructive"
-                  onClick={() => deletePatient(p.id)}
-                  type="button"
-                >
-                  Cancel
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[50px]  text-center">No.</TableHead> 
+            <TableHead className="w-[150px] text-center">Name</TableHead> 
+            <TableHead className="w-[100px] text-center">Age</TableHead> 
+            <TableHead className="w-[200px] text-center">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {patient.length === 0 ? (
+            <TableRow>
+              <TableCell colSpan={4} className="text-center">
+                No patients found.
+              </TableCell>
+            </TableRow>
+          ) : (
+              patient.map((p, index) => (
+              <TableRow key={p.id} className="space-x-4">
+                <TableCell className="font-medium text-center">{index + 1}</TableCell>
+                <TableCell className="text-center">{p.name}</TableCell>
+                <TableCell className="text-center">{p.age}</TableCell>
+                <TableCell className="text-center">
+                  <div className="gap-2">
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    onClick={() => onEdit(p)}
+                    type="button"
+                    aria-label="Edit"
+                  >
+                   <UserPen className="w-4 h-4"/>
+                  </Button>
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    onClick={() => deletePatient(p.id)}
+                    type="button"
+                    aria-label="Delete"
+                  >
+                    <Trash2Icon className="w-4 h-4" />
+                  </Button>
+                  </div>
+              </TableCell>
+              </TableRow>
+            ))
+          )}
+        </TableBody>
+      </Table>
   );
 };
 

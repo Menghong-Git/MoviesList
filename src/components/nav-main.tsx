@@ -1,16 +1,8 @@
 "use client";
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 import { ChevronRight, type LucideIcon } from "lucide-react";
 
 import {
   Collapsible,
-<<<<<<< HEAD
-=======
-  CollapsibleContent,
->>>>>>> main
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
@@ -19,17 +11,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-<<<<<<< HEAD
 } from "@/components/ui/sidebar";
 import { useLocation, useNavigate } from "react-router";
-=======
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-} from "@/components/ui/sidebar";
-import { useLocation, useNavigate } from "react-router";
-// import { ROUTE_PATH } from "@/lib/route-path";
->>>>>>> main
 
 export function NavMain({
   items,
@@ -39,13 +22,6 @@ export function NavMain({
     url: string;
     icon?: LucideIcon;
     isActive?: boolean;
-<<<<<<< HEAD
-=======
-    items?: {
-      title: string;
-      url: string;
-    }[];
->>>>>>> main
   }[];
 }) {
   // hooks
@@ -77,11 +53,7 @@ export function NavMain({
                   )}
                 </SidebarMenuButton>
               </CollapsibleTrigger>
-<<<<<<< HEAD
               {/* <CollapsibleContent>
-=======
-              <CollapsibleContent>
->>>>>>> main
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
@@ -94,11 +66,7 @@ export function NavMain({
                     </SidebarMenuSubItem>
                   ))}
                 </SidebarMenuSub>
-<<<<<<< HEAD
               </CollapsibleContent> */}
-=======
-              </CollapsibleContent>
->>>>>>> main
             </SidebarMenuItem>
           </Collapsible>
         ))}
