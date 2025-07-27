@@ -1,6 +1,8 @@
 // import AppLayout from "@/layout";
 import Loader from "@/components/loader/Loader";
+import SignUp from "@/components/Signup-logic";
 import { ROUTE_PATH } from "@/lib/route-path";
+
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
 
@@ -12,6 +14,7 @@ const Patients = lazy(() => import("../pages/patients"));
 const Doctors = lazy(() => import("../pages/doctor"));
 const Appointments = lazy(() => import("../pages/appointment"));
 const Logins = lazy(() => import("../pages/login/"))
+
 
 const AllRoutes = () => {
   return (
@@ -65,6 +68,15 @@ const AllRoutes = () => {
             </Suspense>
           }
         />
+        <Route
+          path={ROUTE_PATH.SignUpButton.root}
+          element={
+            <Suspense fallback={<Loader />}>
+              <SignUp />
+            </Suspense>
+          }
+        />
+        
       </Route>
       {/* End Layout */}
     </Routes>

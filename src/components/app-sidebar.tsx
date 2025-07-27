@@ -21,11 +21,12 @@ import {
 import { ROUTE_PATH } from "@/lib/route-path";
 import { IconReport, IconUser } from "@tabler/icons-react";
 
+
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Menghong",
+    email: "PenMenghong7@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
