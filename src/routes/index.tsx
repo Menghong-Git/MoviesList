@@ -14,6 +14,7 @@ const Patients = lazy(() => import("../pages/patients"));
 const Doctors = lazy(() => import("../pages/doctor"));
 const Appointments = lazy(() => import("../pages/appointment"));
 const Logins = lazy(() => import("../pages/login/"))
+const Movies = lazy(()=> import("../pages/movies")) 
 
 
 const AllRoutes = () => {
@@ -76,6 +77,15 @@ const AllRoutes = () => {
             </Suspense>
           }
         />
+        <Route
+          path={ROUTE_PATH.MoviePage.root}
+          element={
+            <Suspense fallback={<Loader/>}>
+              <Movies />
+            </Suspense>
+          }
+        />
+
         
       </Route>
       {/* End Layout */}

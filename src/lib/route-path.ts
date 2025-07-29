@@ -1,5 +1,4 @@
 
-
 export const ROUTE_PATH = {
   root: "/",
   PatientPage: {
@@ -16,5 +15,8 @@ export const ROUTE_PATH = {
   },
   SignUpButton: {
     root: "SignUp"
+  },
+  MoviePage: {
+    root: "movies",
   },
 };

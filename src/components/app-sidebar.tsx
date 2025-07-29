@@ -67,11 +67,6 @@ const data = {
       url: ROUTE_PATH.AppointmetPage.root,
       icon: IconReport,
     },
-    {
-      title: "Logins",
-      url: ROUTE_PATH.LoginPage.root,
-      icon: IconReport,
-    },
   ],
   
   // projects: [],
