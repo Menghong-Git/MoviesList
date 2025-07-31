@@ -14,7 +14,8 @@ const Patients = lazy(() => import("../pages/patients"));
 const Doctors = lazy(() => import("../pages/doctor"));
 const Appointments = lazy(() => import("../pages/appointment"));
 const Logins = lazy(() => import("../pages/login/"))
-const Movies = lazy(()=> import("../pages/movies")) 
+const MovieDetail = lazy(()=> import("../pages/movies/detail")) 
+const MoviePage = lazy(()=> import("../pages/movies")) 
 
 
 const AllRoutes = () => {
@@ -62,6 +63,27 @@ const AllRoutes = () => {
           }
         />
         <Route
+          path={ROUTE_PATH.movies.root}
+          element={
+            <Suspense fallback={<div><Loader/></div>}>
+              <MoviePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={ROUTE_PATH.movies.id}
+          element={
+            <Suspense fallback={<div><Loader/></div>}>
+              <MovieDetail />
+            </Suspense>
+          }
+        />
+
+
+        
+      </Route>
+
+      <Route
           path={ROUTE_PATH.LoginPage.root}
           element={
             <Suspense fallback={<Loader />}>
@@ -77,17 +99,6 @@ const AllRoutes = () => {
             </Suspense>
           }
         />
-        <Route
-          path={ROUTE_PATH.MoviePage.root}
-          element={
-            <Suspense fallback={<Loader/>}>
-              <Movies />
-            </Suspense>
-          }
-        />
-
-        
-      </Route>
       {/* End Layout */}
     </Routes>
   );

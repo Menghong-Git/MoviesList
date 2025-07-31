@@ -16,7 +16,8 @@ export const ROUTE_PATH = {
   SignUpButton: {
     root: "SignUp"
   },
-  MoviePage: {
+  movies: {
     root: "movies",
+    id: "movies/:id",
   },
 };
