@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   AudioWaveform,
+  Clapperboard,
   Command,
   GalleryVerticalEnd,
   // ShoppingCart,
@@ -21,11 +22,13 @@ import {
 import { ROUTE_PATH } from "@/lib/route-path";
 import { IconReport, IconUser } from "@tabler/icons-react";
 
+
+
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Menghong",
+    email: "PenMenghong7@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
@@ -67,10 +70,11 @@ const data = {
       icon: IconReport,
     },
     {
-      title: "Logins",
-      url: ROUTE_PATH.LoginPage.root,
-      icon: IconReport,
+      title: "Movies",
+      url: ROUTE_PATH.movies.root,
+      icon: Clapperboard,
     },
+
   ],
   
   // projects: [],

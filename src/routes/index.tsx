@@ -1,6 +1,8 @@
 // import AppLayout from "@/layout";
 import Loader from "@/components/loader/Loader";
+import SignUp from "@/components/Signup-logic";
 import { ROUTE_PATH } from "@/lib/route-path";
+
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
 
@@ -12,6 +14,9 @@ const Patients = lazy(() => import("../pages/patients"));
 const Doctors = lazy(() => import("../pages/doctor"));
 const Appointments = lazy(() => import("../pages/appointment"));
 const Logins = lazy(() => import("../pages/login/"))
+const MovieDetail = lazy(()=> import("../pages/movies/detail")) 
+const MoviePage = lazy(()=> import("../pages/movies")) 
+
 
 const AllRoutes = () => {
   return (
@@ -58,6 +63,27 @@ const AllRoutes = () => {
           }
         />
         <Route
+          path={ROUTE_PATH.movies.root}
+          element={
+            <Suspense fallback={<div><Loader/></div>}>
+              <MoviePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={ROUTE_PATH.movies.id}
+          element={
+            <Suspense fallback={<div><Loader/></div>}>
+              <MovieDetail />
+            </Suspense>
+          }
+        />
+
+
+        
+      </Route>
+
+      <Route
           path={ROUTE_PATH.LoginPage.root}
           element={
             <Suspense fallback={<Loader />}>
@@ -65,7 +91,14 @@ const AllRoutes = () => {
             </Suspense>
           }
         />
-      </Route>
+        <Route
+          path={ROUTE_PATH.SignUpButton.root}
+          element={
+            <Suspense fallback={<Loader />}>
+              <SignUp />
+            </Suspense>
+          }
+        />
       {/* End Layout */}
     </Routes>
   );

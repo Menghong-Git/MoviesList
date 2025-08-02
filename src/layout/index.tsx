@@ -12,6 +12,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import SignUpButton from "@/pages/signup";
 
 import { Separator } from "@radix-ui/react-separator";
 import { Outlet } from "react-router";
@@ -37,9 +38,10 @@ const AppLayout = () => {
             </Breadcrumb>
           </div>
           <div>
-            <SearchForm/>
+            <SearchForm />
           </div>
-          <div className="flex items-end ml-auto mx-10">
+          <div className="flex items-end ml-auto mx-10 gap-3">
+            <SignUpButton/>
             <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
               <ModeToggle />
             </ThemeProvider>
