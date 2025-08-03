@@ -19,15 +19,16 @@ import Loader from "@/components/loader/Loader";
 
 
 
-const apiHost = "imdb236.p.rapidapi.com";
-const apiKey = "9639aaaf36mshd9055978bc48e51p1c1e68jsnb473f6aaa823";
-const apiUrl = "https://imdb236.p.rapidapi.com/api/imdb/tt0816692"
+
 
 const MovieDetail = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const [movies, setMovie] = useState<IMovie.Detail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const apiHost = "imdb236.p.rapidapi.com";
+  const apiKey = "fa912433fbmsha4ad96dce85022dp164059jsn8f5588ced134";
+  const apiUrl = `https://imdb236.p.rapidapi.com/api/imdb/${id}`
 
   useEffect(() => {
     fetch(apiUrl, {
@@ -37,9 +38,9 @@ const MovieDetail = () => {
         "x-rapidapi-key": apiKey,
       },
     }).then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch movie detail");
-        return res.json();
-      })
+      if (!res.ok) throw new Error("Failed to fetch movie detail");
+      return res.json();
+    })
       .then((data) => {
         setMovie(data); // now it's one movie object
         setLoading(false);
@@ -48,14 +49,14 @@ const MovieDetail = () => {
         setError(err.message);
         setLoading(false);
       });
-  },[id]);
+  },);
 
   if (loading) return <Loader />;
   if (error) return <p className="text-red-500">{error}</p>;
   if (!movies) return <p>Movie not found.</p>;
 
   return (
-    <div  className="flex justify-center p-8">
+    <div className="flex justify-center p-8 ">
       <Card className="max-w-xl w-full">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">
@@ -63,15 +64,15 @@ const MovieDetail = () => {
           </CardTitle>
           <CardDescription>
             {movies.releaseDate || "Unknown Year"} |{" "}
-            {movies.contentRating || "N/A"} ⭐
+            {movies.contentRating || "N/A" }
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 px-0">
           <img
             src={movies.primaryImage || "/placeholder.jpg"}
             alt={movies.primaryTitle}
-            className="w-full h-auto rounded-md"
+            className="w-full h-auto rounded-md "
           />
 
           <p className="text-muted-foreground leading-relaxed">
@@ -96,7 +97,7 @@ const MovieDetail = () => {
         </CardContent>
 
         <CardFooter className="grid grid-cols-2 space-x-0.5">
-          <Button  onClick={() => window.history.back()}>
+          <Button onClick={() => window.history.back()}>
             Go Back
           </Button>
           <Button>
