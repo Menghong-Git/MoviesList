@@ -27,7 +27,7 @@ const MovieDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const apiHost = "imdb236.p.rapidapi.com";
-  const apiKey = "fa912433fbmsha4ad96dce85022dp164059jsn8f5588ced134";
+  const apiKey = "bc7c9c8889msh007e8cbb3f29081p19f9e9jsn00bda66a9570";
   const apiUrl = `https://imdb236.p.rapidapi.com/api/imdb/${id}`
 
   useEffect(() => {

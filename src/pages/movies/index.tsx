@@ -19,7 +19,7 @@ const Movies = () => {
   const [error, setError] = useState(null);
   const apiUrl = "https://imdb236.p.rapidapi.com/api/imdb/top250-movies";
   const apiHost = "imdb236.p.rapidapi.com";
-  const apiKey = "fa912433fbmsha4ad96dce85022dp164059jsn8f5588ced134";
+  const apiKey = "bc7c9c8889msh007e8cbb3f29081p19f9e9jsn00bda66a9570";
   const handleMovieClick = (movieId: string) => {
     navigate(`/${ROUTE_PATH.movies.id.replace(":id", movieId)}`);
   };
