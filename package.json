@@ -3,11 +3,16 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "Homepage": "https://menghong-git.github.io/MoviesList",
+  "MoviePage": "https://menghong-git.github.io/MoviesList",
+
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    
+    
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
