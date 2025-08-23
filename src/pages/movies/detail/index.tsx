@@ -29,7 +29,7 @@ const MovieDetail = () => {
   const apiHost = "imdb236.p.rapidapi.com";
   const apiKey = "bc7c9c8889msh007e8cbb3f29081p19f9e9jsn00bda66a9570";
   const apiUrl = `https://imdb236.p.rapidapi.com/api/imdb/${id}`
-
+// logogkdjsfljksdkjfsi
   useEffect(() => {
     fetch(apiUrl, {
       method: "GET",
