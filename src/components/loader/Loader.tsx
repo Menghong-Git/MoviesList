@@ -1,4 +1,4 @@
-import React from 'react'
+
 import '../Loader/loader.css'
 const Loader = () => {
   return (
