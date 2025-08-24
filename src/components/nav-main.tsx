@@ -1,6 +1,5 @@
 "use client";
-import { ChevronRight, type LucideIcon } from "lucide-react";
-
+import { ChevronRight } from "lucide-react";
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -14,17 +13,22 @@ import {
 } from "@/components/ui/sidebar";
 import { useLocation, useNavigate } from "react-router";
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string;
-    url: string;
-    icon?: LucideIcon;
-    isActive?: boolean;
-  }[];
-}) {
-  // hooks
+// Fixed icon type: works for Lucide & Tabler
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type IconType = React.ComponentType<any>;
+
+interface NavItem {
+  title: string;
+  url: string;
+  icon?: IconType;
+  isActive?: boolean;
+}
+
+interface NavMainProps {
+  items: NavItem[];
+}
+
+export function NavMain({ items }: NavMainProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const isActive = (url: string) => location.pathname === url;
@@ -46,27 +50,13 @@ export function NavMain({
                   tooltip={item.title}
                   onClick={() => navigate(item.url)}
                 >
-                  {item.icon && <item.icon />}
+                  {item.icon && <item.icon className="w-5 h-5" />}
                   <span>{item.title}</span>
-                  {item.items && item.items.length > 0 && (
+                  {items && items.length > 0 && (
                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                   )}
                 </SidebarMenuButton>
               </CollapsibleTrigger>
-              {/* <CollapsibleContent>
-                <SidebarMenuSub>
-                  {item.items?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton
-                        asChild
-                        onClick={() => navigate(subItem.url)}
-                      >
-                        <span>{subItem.title}</span>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  ))}
-                </SidebarMenuSub>
-              </CollapsibleContent> */}
             </SidebarMenuItem>
           </Collapsible>
         ))}

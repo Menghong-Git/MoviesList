@@ -13,8 +13,8 @@ import {
 
 type EditState = {
     id: string;
-    patientId: number;
-    doctorId: number;
+    patientId: string;
+    doctorId: string;
     date: Date;
     time: string;
 } | null;
