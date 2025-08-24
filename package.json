@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://menghong-git.github.io/MoviesList/",
+  "homepage": "https://Menghong-Git.github.io/MoviesList/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
